@@ -1,0 +1,238 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Search_Vendor_GST" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_Vendor_Provided_Gstn" Type="InArgument(x:String)" />
+    <x:Property Name="In_Url_Gst_Zen" Type="InArgument(x:String)" />
+    <x:Property Name="Out_Vendor_Read_Pan_No" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_Vendor_Read_Trade_Name" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_Vendor_Read_Gstn" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1042.176,1514.496</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Search_Vendor_GST_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="72">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Search_Vendor_GST" sap:VirtualizedContainerService.HintSize="671.232,1449.216" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="Bln_Gstn_Valid" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: GST Tax Payer Search (without Captcha) | GSTZen" sap:VirtualizedContainerService.HintSize="629.76,1357.824" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="7038df49-5156-4f44-9310-cd1951c68f35" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="595.968,1140.48" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'GSTIN*'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="554.496,52.224" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="7038df49-5156-4f44-9310-cd1951c68f35" Text="[In_Vendor_Provided_Gstn]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://my.gstzen.in/p/search-taxpayer/" DesignTimeRectangle="158, 899, 503, 57" ElementType="InputBox" FriendlyName="'INPUT id_gstin'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='textinput textInput form-control' aaname='                 GSTIN* ' /&gt;" Guid="68ebf9d0-ddf6-44a7-9519-1eb431fd610b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAfsAAAA9CAYAAACqTcDPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEzkAABM5AY/CVgEAAAIKSURBVHhe7dqxjqpQGIXR+/7vp5UmjBVWFoqFYM7NT5gJRh9AdtZKduWx/vTAv8fj0czMzCx3Ym9mZha+j7Hv+74dj8e23+/bbrczMzOzL171urpd/f7U9ZfYD8PQDodDO51O7X6/t+fz2QCA71a9rm7//PzMHa+er/v+Evs6cD6fl68CAFtT/+6r5+u+/8W+Puy6bjkKAGxV9Xx9pf8X+7rrv91uyzEAYKuu1+vc9bfY18P9aZqWYwDAVo3jOHf9Lfb1Nh8AkKG6LvYAEEzsASCc2ANAOLEHgHBiDwDhxB4Awok9AIQTewAIJ/YAEE7sASCc2ANAOLEHgHBiDwDhxB4Awok9AIQTewAIJ/YAEE7sASCc2ANAOLEHgHBiDwDhxB4Awok9AIQTewAIJ/YAEE7sASCc2ANAOLEHgHBiDwDhxB4Awok9AIQTewAIJ/YAEE7sASCc2ANAOLEHgHBiDwDhxB4Awok9AIQTewAIJ/YAEE7sASCc2ANAOLEHgHAfY7/f79s0TcsRAGCrxnGcu/4W++Px2G6323IMANiq6/U6d/0t9n3ft67rlmMAwFZVz6vrb7GvHQ6H+UMAYJuq49Xzdd9fYj8Mw3ygdrlc5jt/AOC7Va+r278Nr56v+/4S+9/Vr4K666+H+/U2n5mZmX3vqtfV7fXV/XofY29mZmY5E3szM7PoPdp/vDzNZbJA0xIAAAAASUVORK5CYII=" InformativeScreenshot="86789080db33b5652f1a3c0c623cac9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='GST Tax Payer Search (without Captcha) | GSTZen' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="158, 851, 84, 36" ElementType="Text" FriendlyName="'GSTIN*'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='form-control-label  requiredField' aaname='                 GSTIN ' check:innerText='GSTIN*' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAoCAYAAAB6tz31AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEzkAABM5AY/CVgEAAAR6SURBVGhD7ZjPSyNnGMf9M/wTVtyDELQIFvagy26ChywpaFsIu4KuVKSQ0rJLyxo8bOJBlJJdinjYBGlNLkVYbEs3hzRSJDmUCCvZshhEBlpIEecQyJp8+0x+zfO+TnTc8qaX9/CBZOb7zjvzmXee953pq1ar0KhDC1aMFqwYLVgxWrBitGDFaMGK0YIVowUrRgtWjBasGC1YMZcLNkvIpTYRXgjAO3YTA4NtRuH9KICFpU1s75Vgdm27htBMAB8Os7Zjk/DPfIHVl8Vmu/0oO65bHmL7pNlPboVvjyLHz6GaR0RoN4nVvMn2ixiphywrH+si599PAX19xBTqx84ZZ8GVMgqpr+HnYroxl4QhtTfS0avbttv1VDDhW0PO5Bmb6wqu/h5uCu4Po+a0n7gouFLC7uNJ1tEVyILfJDDllJP5vwQT3ucFlrFxJfjwO+DOPOqJDM4P403Bn8RR+zOD+tN5IBjHOctLgk06YUnucAChjTSKBnu0KibKJ0VkrRLwzY4gOLfiEdp7HydRYG3NsoFiJonIitiOI17oTUT2nXMW7yPYKhWxA55r4kbw+cbdVlnoxl3UD+28KPjgGbz8RIZppLxl+6/EwPYca89G2nVQL5iYTqBY4VmXgnfWUQ/dB27dEMX20//x+zSK11FzFlzGboidwKAHoZflTtAdsmAPZn8oOeQuR5Xg4NKyUL6mXhRZ1p3gNu/+ppLwARP81c9CaWhjCzbTCLPOB4apA+kOu6Hw/DY7SQsP/KFNZEvdZ28ZVYJnUyUUX3zM8vSEley8a8H/MLnfJlG/0/r9JIN3UtYWXEoi2Dk4MS/XVrZPZiXfyVVP6aJ8DhliZHoZ8X3DznZBnWDqu1JAjJ8fTbZHrYHkTvAZak9a5aH/EWpnNJp/edQayTdQ/+1MyNuC5dmcSyNcC7Yw0ojcEyc7zsjnVP9OWV5CqWBruzDXUBmjkW1tdz2CLckJWjEkjlv/j1H/jFYWB6JcC1twfg1DnYMToZ9QZsFrCbagtXTx102Epkcd2wzN2yNHRrlga7W0zlZLNJn/SJOxe8HusQWfJDHbOTgx8QwFFhSQs06CGeU3acRmZNEehDPOdVm9YMLMY5WViiEqiTmlgqtUmybsDgcGbyP2hxjucE3BDWhEZ5+KE+C4qwW/IsGESWVRKBVzDzpZBYKrONriMyzho06camVXwQZ2t9Iwuq0+9sQ6P7TufGN6JdgqFfJNt1EguHqaRUQYxYRvERuZEsrt93d6izP21uDnGSa4sQ4ee4DYTgFH7OaYb7NY/VSc+Lqts3snmHC65gYqBBPm6wRm3Xzk4ciCnTIyE3QBrj66KBZMmPRkjbOc87HejwuCG5xcvswSGUWwtcxxLXhsEfHXbj8bqhdslYpXS/L1qhTcwpr940uL8N+7JSzhRnwBBL+MIm6VAXkU/lXEq61o4zuw8A3Z+g68sIyNVL57jW7Re8HEKb3JCk9uDwRr/jtasGK0YMVowYrRghWjBStGC1aMFqwYLVgxWrBitGClVPEvZWdfioFerIMAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Search GSTIN Details'" sap:VirtualizedContainerService.HintSize="554.496,52.224" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7038df49-5156-4f44-9310-cd1951c68f35" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://my.gstzen.in/p/search-taxpayer/" DesignTimeRectangle="814, 769, 286, 57" ElementType="Button" FriendlyName="'Search GSTIN Details'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='cz-no-double-click btn btn-primary' aaname='                              Search GSTIN Details                       ' check:innerText='Search GSTIN Details' /&gt;" Guid="bc5d02a7-99d8-4915-b53b-d9537bafa4cd" ImageBase64="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" InformativeScreenshot="39ee8005d3dcab8d4e6daa7332c6deb6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='GST Tax Payer Search (without Captcha) | GSTZen' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State 'GSTIN Details'" Exists="[Bln_Gstn_Valid]" sap:VirtualizedContainerService.HintSize="554.496,251.136" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="7038df49-5156-4f44-9310-cd1951c68f35" Version="V1">
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://my.gstzen.in/m/taxpayers/life-style-international/24AAACL2937J1ZK/" DesignTimeRectangle="158, 446, 422, 40" ElementType="Text" FriendlyName="'GSTIN Details'" FullSelectorArgument="&lt;webctrl tag='H4' aaname=' GSTIN Details ' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H4' type='' class='' aaname=' GSTIN Details ' check:innerText='GSTIN Details' /&gt;" Guid="c10bdbe1-5586-4848-93a6-a2d9ed44b070" ImageBase64="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" InformativeScreenshot="7e913c2a7ba6330f2ddc61f7f1b81df3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* GSTIN *' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <If Condition="[Bln_Gstn_Valid]" sap:VirtualizedContainerService.HintSize="554.496,570.624" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Gstn_Valid" sap:VirtualizedContainerService.HintSize="475.392,380.16" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Edge: LIFE STYLE INTERNATIONAL - GSTIN 24AAACL2937J1ZK" sap:VirtualizedContainerService.HintSize="433.92,285.696" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="b15b0818-9701-45e8-9cfc-de089ba18a32" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="199.68,68.352" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NGetText DisplayName="Get Text 'LIFESTYLE INTERNATIONAL'" sap:VirtualizedContainerService.HintSize="334.08,52.224" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="7038df49-5156-4f44-9310-cd1951c68f35" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://my.gstzen.in/m/taxpayers/life-style-international/24AAACL2937J1ZK/" DesignTimeRectangle="509, 397, 559, 73" ElementType="Text" FriendlyName="'LIFESTYLE INTERNATIONAL'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='text-left' tag='TD' /&gt;" Guid="f58c087f-797b-4fbb-8707-c4554439570e" ImageBase64="" InformativeScreenshot="91585f54e9b099e0c07bd102293d75ff.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - GSTIN *' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[Out_Vendor_Read_Trade_Name]</OutArgument>
+                            </uix:NGetText.Text>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetText>
+                          <uix:NGetText DisplayName="Get Text 'AAACL2937J'" sap:VirtualizedContainerService.HintSize="334.08,157.44" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="7038df49-5156-4f44-9310-cd1951c68f35" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://my.gstzen.in/m/taxpayers/life-style-international/24AAACL2937J1ZK/" DesignTimeRectangle="527, 710, 132, 32" ElementType="Text" FriendlyName="'AAACL2937J'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='5' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='' /&gt;" Guid="38a09201-ab45-42dd-83d9-e2e9a8914eaf" ImageBase64="" InformativeScreenshot="89b3ece882e99a864670c7c5aace0b76.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*- GSTIN *' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[Out_Vendor_Read_Pan_No]</OutArgument>
+                            </uix:NGetText.Text>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetText>
+                          <uix:NGetText DisplayName="Get Text '24AAACL2937J1ZK'" sap:VirtualizedContainerService.HintSize="334.08,52.224" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="7038df49-5156-4f44-9310-cd1951c68f35" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://my.gstzen.in/m/taxpayers/life-style-international/24AAACL2937J1ZK/" DesignTimeRectangle="509, 343, 559, 73" ElementType="Text" FriendlyName="'24AAACL2937J1ZK'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='4' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='text-left' tag='TD' /&gt;" Guid="c30e37f9-83a4-4c38-be92-bf61963c6423" ImageBase64="" InformativeScreenshot="f63a5a17a8628ba324d0b8a73d46f559.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - GSTIN *' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[Out_Vendor_Read_Gstn]</OutArgument>
+                            </uix:NGetText.Text>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetText>
+                          <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="334.08,82.944" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[In_Url_Gst_Zen]" Version="V1" />
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="-9, -9, 1938, 1037" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEzkAABM5AY/CVgEAAAD9SURBVDhP3ZItDsJAEIWbJhV1dZUVqLqegAP0BGgMZ8BWoLkAGsUBUGC5ABKDRWBxvG/zlpSUH0nCJF92d+bNzM62yR/aaHfMxUSsDPvc4c8mYSo6cRUHsfceX2bZe5OoFmcncBOY20eMBsNCciKcCTrexEKUjpWCIhTdGs5FTM4ECRexFsx9Ep3jdCYJHzE0aJciQ9AIrkjVtJdEZ9b4Fg0xTPs4VsOhFVQcOx5M55hM98ruYGgFOS2HpxsYBLFzZdCFRxSMzEg1BXAwD59rYyjIGjpr5QHxMT83ovtjZASF4CuQhGiKLwRl7EU//vrnkjOM4OPAvsV/YUlyB8MlBkH6nNhtAAAAAElFTkSuQmCC" InformativeScreenshot="9a316d5c8bcaaaa0a0e87809df928074.png" Selector="&lt;html app='msedge.exe' title='*- GSTIN *' /&gt;" />
+                    </uix:NApplicationCard.TargetApp>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NApplicationCard>
+                </Sequence>
+              </If.Then>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1037" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEzkAABM5AY/CVgEAAAD9SURBVDhP3ZItDsJAEIWbJhV1dZUVqLqegAP0BGgMZ8BWoLkAGsUBUGC5ABKDRWBxvG/zlpSUH0nCJF92d+bNzM62yR/aaHfMxUSsDPvc4c8mYSo6cRUHsfceX2bZe5OoFmcncBOY20eMBsNCciKcCTrexEKUjpWCIhTdGs5FTM4ECRexFsx9Ep3jdCYJHzE0aJciQ9AIrkjVtJdEZ9b4Fg0xTPs4VsOhFVQcOx5M55hM98ruYGgFOS2HpxsYBLFzZdCFRxSMzEg1BXAwD59rYyjIGjpr5QHxMT83ovtjZASF4CuQhGiKLwRl7EU//vrnkjOM4OPAvsV/YUlyB8MlBkH6nNhtAAAAAElFTkSuQmCC" InformativeScreenshot="154a177fcb8b774e4052c75d0029e55f.png" Selector="&lt;html app='msedge.exe' title='GST Tax Payer Search (without Captcha) | GSTZen' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
